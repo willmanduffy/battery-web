@@ -1,7 +1,3 @@
-// import loop, { Effects } from 'redux-loop';
-
-import atomicData from './atomic.json';
-
 export const initialState = () => {
   return {
     data: [],
@@ -11,8 +7,8 @@ export const initialState = () => {
 };
 
 // Actions
-export const initializeApp = () => {
-  return { type: 'INITIALIZE_APP' };
+export const initializeApp = (atomicData) => {
+  return { type: 'INITIALIZE_APP', atomicData };
 }
 
 export const searchChanged = (term) => {
@@ -23,28 +19,36 @@ export const searchChanged = (term) => {
 const reducer = (state = initialState(), action) => {
   switch(action.type) {
     case 'INITIALIZE_APP':
-      const data = Object.keys(atomicData).map((className) => {
-        const values = atomicData[className];
-        const cssProps = Object.keys(values);
+      const { atomicData } = action;
 
-        const css = cssProps.map((cssProp) => {
+      if (atomicData) {
+        const data = Object.keys(atomicData).map((className) => {
+          const values = atomicData[className];
+          const cssProps = Object.keys(values);
+
+          const css = cssProps.map((cssProp) => {
+            return {
+              cssProp,
+              cssValue: values[cssProp]
+            }
+          })
+
           return {
-            cssProp,
-            cssValue: values[cssProp]
-          }
-        })
+            className,
+            css
+          };
+        });
 
-        return {
-          className,
-          css
-        };
-      });
+        return { ...state, data, matchingData: data };
+      } else {
+        return state;
+      }
 
-      return { ...state, data };
 
     case 'SEARCH_CHANGED':
       const { term } = action;
 
+      // Decide search results from term
       const matchingData = state.data.filter((item) => {
         return item.className.search(term) !== -1 ||
           item.css.map((cssData) => {

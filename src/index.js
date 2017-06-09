@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import atomicData from './atomic.json';
 
 import reducer, {
   initializeApp
@@ -20,6 +21,6 @@ const render = () => {
 
 render();
 store.subscribe(render);
-store.dispatch(initializeApp());
+store.dispatch(initializeApp(atomicData));
 
 registerServiceWorker();
