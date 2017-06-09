@@ -14,12 +14,12 @@ const App = ({ state, dispatch }) => {
 
     const attributes = datum.css.map((cssItem) => {
       return (
-        <p className='pl1'>{cssItem.cssProp}: {cssItem.cssValue}</p>
+        <p key={`${datum.className}-${cssItem.cssProp}`} className='pl1'>{cssItem.cssProp}: {cssItem.cssValue}</p>
       );
     });
 
     return(
-      <li className={`p2 ${backgroundStyle}`} key={datum.className}>
+      <li className={`p2 ${backgroundStyle}`} key={index}>
         <p>{`${datum.className} {`}</p>
         {attributes}
         <p>{`}`}</p>
