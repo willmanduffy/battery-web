@@ -52,7 +52,8 @@ const reducer = (state = initialState(), action) => {
       const matchingData = state.data.filter((item) => {
         return item.className.search(term) !== -1 ||
           item.css.map((cssData) => {
-            return cssData.cssProp.search(term) !== -1;
+            return cssData.cssProp.search(term) !== -1 ||
+              cssData.cssValue.toString().search(term) !== -1;;
           }).filter((item) => { return item }).length > 0;
       });
 

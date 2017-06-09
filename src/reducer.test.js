@@ -10,7 +10,7 @@ const atomicData = {
   },
   'sick-class-name': {
     'padding-top': '1rem',
-    'padding-bottom': '2rem'
+    'z-index': 5000
   }
 };
 
@@ -32,8 +32,8 @@ const sickClass = {
       cssValue: '1rem'
     },
     {
-      cssProp: 'padding-bottom',
-      cssValue: '2rem'
+      cssProp: 'z-index',
+      cssValue: 5000
     }
   ]
 }
@@ -84,10 +84,24 @@ describe('searchChanged', () => {
       const expectation = {
         data,
         matchingData: [sickClass],
-        term: 'padding-bottom'
+        term: 'z-index'
       };
 
-      const subject = reducer(state, searchChanged('padding-bottom'));
+      const subject = reducer(state, searchChanged('z-index'));
+
+      expect(subject).toEqual(expectation);
+    });
+  });
+
+  describe('when there is matching data via cssValue', () => {
+    it('matches that CSS', () => {
+      const expectation = {
+        data,
+        matchingData: [sickClass],
+        term: '5000'
+      };
+
+      const subject = reducer(state, searchChanged('5000'));
 
       expect(subject).toEqual(expectation);
     });
