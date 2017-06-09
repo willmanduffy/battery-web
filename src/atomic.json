@@ -408,31 +408,31 @@
     "background-size": "105%"
   },
   "border": {
-    "border": "0.1rem solid #fff000"
+    "border": "0.1rem solid #E8E8E8"
   },
   "border-none": {
     "border": "none !important"
   },
   "border-top": {
-    "border-top": "0.1rem solid #fff000"
+    "border-top": "0.1rem solid #E8E8E8"
   },
   "border-top-none": {
     "border-top": "none !important"
   },
   "border-right": {
-    "border-right": "0.1rem solid #fff000"
+    "border-right": "0.1rem solid #E8E8E8"
   },
   "border-right-none": {
     "border-right": "none !important"
   },
   "border-bottom": {
-    "border-bottom": "0.1rem solid #fff000"
+    "border-bottom": "0.1rem solid #E8E8E8"
   },
   "border-bottom-none": {
     "border-bottom": "none !important"
   },
   "border-left": {
-    "border-left": "0.1rem solid #fff000"
+    "border-left": "0.1rem solid #E8E8E8"
   },
   "border-left-none": {
     "border-left": "none !important"
@@ -1141,13 +1141,13 @@
     "border-width": "0.3rem"
   },
   "shadow-1": {
-    "box-shadow": "0 1px 2px 1px color(black_17)"
+    "box-shadow": "0 1px 2px 1px rgba(0,0,0,0.17)"
   },
   "shadow-2": {
-    "box-shadow": "0 2px 6px 0 color(black_17)"
+    "box-shadow": "0 2px 6px 0 rgba(0,0,0,0.17)"
   },
   "shadow-3": {
-    "box-shadow": "0 3px 6px 1px color(black_17)"
+    "box-shadow": "0 3px 6px 1px rgba(0,0,0,0.17)"
   },
   "shadow-high": {
     "box-shadow": "0 4px 10px 0 rgba(22, 22, 22, 0.08)"
@@ -1776,14 +1776,50 @@
   "h4px": {
     "height": "0.4rem"
   },
+  "h10vh": {
+    "height": "10vh"
+  },
   "h20vh": {
     "height": "20vh"
   },
+  "h25vh": {
+    "height": "25vh"
+  },
+  "h33vh": {
+    "height": "33vh"
+  },
+  "h34vh": {
+    "height": "34vh"
+  },
+  "h35vh": {
+    "height": "35vh"
+  },
+  "h40vh": {
+    "height": "40vh"
+  },
+  "h50vh": {
+    "height": "50vh"
+  },
+  "h60vh": {
+    "height": "60vh"
+  },
+  "h66vh": {
+    "height": "66vh"
+  },
+  "h75vh": {
+    "height": "75vh"
+  },
+  "h80vh": {
+    "height": "80vh"
+  },
+  "h90vh": {
+    "height": "90vh"
+  },
+  "h100vh": {
+    "height": "100vh"
+  },
   "h-auto": {
     "height": "auto"
-  },
-  "list-none": {
-    "list-style": "none"
   },
   "justify-start": {
     "justify-content": "flex-start"
@@ -1859,6 +1895,9 @@
   },
   "lh22": {
     "line-height": "13.2rem"
+  },
+  "list-none": {
+    "list-style": "none"
   },
   "m-1px": {
     "margin": "-0.1rem"
@@ -3653,6 +3692,9 @@
   "mw-none": {
     "max-width": "none"
   },
+  "mh100vh": {
+    "min-height": "100vh"
+  },
   "o0p": {
     "opacity": "0"
   },
@@ -3694,6 +3736,9 @@
   },
   "o100p": {
     "opacity": "10"
+  },
+  "outline-none": {
+    "outline": "none"
   },
   "clip": {
     "overflow": "hidden"
