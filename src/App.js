@@ -1,4 +1,5 @@
 import React from 'react';
+import DebounceInput from 'react-debounce-input';
 
 import reducer, {
   searchChanged
@@ -34,7 +35,9 @@ const App = ({ state, dispatch }) => {
     <div className="bg-grey-200 mh100vh pt6 border-box">
       <div className='w80p mx-auto p4 bg-white shadow-2 rounded'>
         <h2 className="light fz-48 mt0 mb3">Atomic Classes</h2>
-        <input
+        <DebounceInput
+          minLength={1}
+          debounceTimeout={300}
           onChange={event => dispatch(searchChanged(event.target.value))}
           className='w100p p2 border-box rounded border border-grey-400 outline-none fz-16'
         />
