@@ -25,25 +25,35 @@ const reducer = (state = initialState(), action) => {
     case 'INITIALIZE_APP':
       const data = Object.keys(atomicData).map((className) => {
         const values = atomicData[className];
-        const cssProp = Object.keys(values)[0];
-        const cssValue = values[cssProp];
+        const cssProps = Object.keys(values);
+
+        const css = cssProps.map((cssProp) => {
+          return {
+            cssProp,
+            cssValue: values[cssProp]
+          }
+        })
 
         return {
           className,
-          cssProp,
-          cssValue
+          css
         };
       });
 
       return { ...state, data };
+
     case 'SEARCH_CHANGED':
       const { term } = action;
+
       const matchingData = state.data.filter((item) => {
         return item.className.search(term) !== -1 ||
-          item.cssProp.search(term) !== -1;
-      })
+          item.css.map((cssData) => {
+            return cssData.cssProp.search(term) !== -1;
+          }).filter((item) => { return item }).length > 0;
+      });
 
       return { ...state, term, matchingData };
+
     default:
       return state;
   };

@@ -9,11 +9,19 @@ import './atoms.css';
 const App = ({ state, dispatch }) => {
   const matchingData = state.matchingData;
 
-  const results = matchingData.map((datum) => {
+  const results = matchingData.map((datum, index) => {
+    const backgroundStyle = index % 2 ? 'bg-grey-200' : '';
+
+    const attributes = datum.css.map((cssItem) => {
+      return (
+        <p className='pl1'>{cssItem.cssProp}: {cssItem.cssValue}</p>
+      );
+    });
+
     return(
-      <li key={datum.className}>
+      <li className={`p2 ${backgroundStyle}`} key={datum.className}>
         <p>{`${datum.className} {`}</p>
-        <p className='pl1'>{datum.cssProp}: {datum.cssValue}</p>
+        {attributes}
         <p>{`}`}</p>
       </li>
     )
@@ -26,7 +34,7 @@ const App = ({ state, dispatch }) => {
         className='w100p p2'
       />
 
-      <ul className='list-none'>
+      <ul className='pl0 list-none'>
         {results}
       </ul>
     </div>
