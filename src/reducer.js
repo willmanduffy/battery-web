@@ -53,7 +53,7 @@ const reducer = (state = initialState(), action) => {
         return item.className.search(term) !== -1 ||
           item.css.map((cssData) => {
             return cssData.cssProp.search(term) !== -1 ||
-              cssData.cssValue.toString().search(term) !== -1;;
+              cssData.cssValue.toString().search(term) !== -1;
           }).filter((item) => { return item }).length > 0;
       });
 
